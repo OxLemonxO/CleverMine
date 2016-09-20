@@ -1,0 +1,5 @@
+name: CleverMine
+version: 1.0
+description: A friendly bot that talks. Uses the CleverBot website.
+authors: [OxLemonxO]
+main: me.oxlemonxo.clevermine.CleverMine

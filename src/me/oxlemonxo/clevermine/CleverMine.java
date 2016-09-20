@@ -3,6 +3,7 @@ package me.oxlemonxo.clevermine;
 import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.oxlemonxo.clevermine.listening.ChatListener;
+import me.oxlemonxo.clevermine.commands.CommandLoader;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class CleverMine extends JavaPlugin
@@ -27,6 +28,13 @@ public class CleverMine extends JavaPlugin
     {
         this.saveDefaultConfig();
         server.getPluginManager().registerEvents(new ChatListener(), CleverMine.plugin);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                CommandLoader.scan();
+
+            }
+        }.runTaskLater(plugin, 20L);
     }
 
     @Override

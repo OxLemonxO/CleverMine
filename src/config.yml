@@ -1,4 +1,21 @@
+#
+# CleverMine config.
+#
+
+
+# Main bot settings.
 bot:
+    # The Bot's name, supports color codes. (&<code>)
     name: 'Bot'
+    
+    # The chat message the bot will look for.
     trigger: 'Hey %botname%,'
+    
+    # The answer the bot will give, supports color codes (&<code>)
     formatting: '%botname% > %message%'
+
+# These commands will alias to "/clevermine" when used.
+commandaliases:
+ - 'bot'
+ - 'cm'
+ - 'cleverbot'

@@ -3,8 +3,3 @@ version: 1.0
 description: A friendly bot that talks. Uses the CleverBot api.
 authors: [OxLemonxO, Mafrans]
 main: me.oxlemonxo.clevermine.CleverMine
-
-commands:
-    clevermine:
-        description: Change preferences for CleverMine.
-        usage: /<command> [personal|public|on|off]

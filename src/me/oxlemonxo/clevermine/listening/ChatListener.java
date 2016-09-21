@@ -9,11 +9,13 @@ import me.oxlemonxo.clevermine.cleverbot.ChatterBotSession;
 import me.oxlemonxo.clevermine.cleverbot.ChatterBotType;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class ChatListener implements Listener
@@ -61,6 +63,19 @@ public class ChatListener implements Listener
             }.runTaskAsynchronously(CleverMine.plugin);
         }
 
+    }
+    
+    @EventHandler
+    public void onCommandPreprocess(PlayerCommandPreprocessEvent e)
+    {
+        Player player = e.getPlayer();
+        String command = e.getMessage();
+        
+        if(plugin.config.getStringList("commandaliases").contains(command.replaceFirst("/", "").split(" ")))
+        {
+            plugin.getServer().dispatchCommand((CommandSender)player, "clevermine " + command.replaceFirst("/", "").replaceFirst(command.split(" ")[0], ""));
+            e.setCancelled(true);
+        }
     }
 }
 

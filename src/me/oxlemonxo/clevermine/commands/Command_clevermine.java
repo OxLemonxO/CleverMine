@@ -6,7 +6,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
 
-@CommandPermissions(source = SourceType.BOTH)
+@CommandPermissions(source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Main command", usage = "/<command> <on | off | personal | global>")
 public class Command_clevermine extends BaseCommand
 {

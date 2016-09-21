@@ -26,11 +26,11 @@ public class Command_clevermine extends BaseCommand
             {
                 if (data.isEnabled())
                 {
-                 sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Bot is already enabled for you.");
+                 sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Bot is already enabled for you.");
                  return true;
                 }
                 data.enable();
-                sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Bot has been successfully enabled for you.");
+                sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Bot has been successfully enabled for you.");
                 return true;
             }
 
@@ -38,11 +38,11 @@ public class Command_clevermine extends BaseCommand
             {
                 if (!data.isEnabled())
                 {
-                 sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Bot is already disabled for you.");
+                 sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Bot is already disabled for you.");
                  return true;
                 }
                 data.disable();
-                sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Bot has been successfully disabled for you.");
+                sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Bot has been successfully disabled for you.");
                 return true;
             }
 
@@ -50,11 +50,11 @@ public class Command_clevermine extends BaseCommand
             {
                 if(data.isPersonal()) 
                 {
-                  sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Mode is already personal.");
+                  sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Mode is already personal.");
                   return true;
                 }
                 data.setPersonal();
-                sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Mode set to personal.");
+                sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Mode set to personal.");
                 return true;
             }
 
@@ -62,10 +62,10 @@ public class Command_clevermine extends BaseCommand
             {
                 if(!data.isPersonal())
                 {
-                    sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Mode is already global.");
+                    sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Mode is already global.");
                 }
                 data.setGlobal();
-                sender.sendMessage(ChatColor.BLUE + plugin.getConfig().getString("bot.name") + " Mode set to global.");
+                sender.sendMessage(ChatColor.BLUE + plugin.config.getString("bot.name") + " Mode set to global.");
             }
             
             default:

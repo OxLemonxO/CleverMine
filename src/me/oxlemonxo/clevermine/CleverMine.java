@@ -4,6 +4,9 @@ import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 import me.oxlemonxo.clevermine.listening.ChatListener;
 import me.oxlemonxo.clevermine.commands.CommandLoader;
+import me.oxlemonxo.clevermine.commands.CommandHandler;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -29,9 +32,11 @@ public class CleverMine extends JavaPlugin
     {
         this.saveDefaultConfig();
         server.getPluginManager().registerEvents(new ChatListener(), CleverMine.plugin);
-        new BukkitRunnable() {
+        new BukkitRunnable()
+        {
             @Override
-            public void run() {
+            public void run()
+            {
                 CommandLoader.scan();
 
             }
@@ -41,7 +46,13 @@ public class CleverMine extends JavaPlugin
     @Override
     public void onDisable()
     {
-     
+
     }
 
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args)
+    {
+        return CommandHandler.handleCommand(sender, cmd, commandLabel, args);
+    }
+    
 }

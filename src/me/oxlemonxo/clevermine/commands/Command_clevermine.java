@@ -15,7 +15,7 @@ public class Command_clevermine extends BaseCommand
     public boolean run(final CommandSender sender, final Player sender_p, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
     {
         PlayerData data = PlayerData.getPlayerData(sender_p);
-        String botPrefix = "[" + plugin.config.getString("bot.name") + "]";
+        String botPrefix = ChatColor.BLUE + "[" + plugin.config.getString("bot.name") + ChatColor.BLUE + "]";
 
         if (args.length != 1)
         {
@@ -27,7 +27,7 @@ public class Command_clevermine extends BaseCommand
             {
                 if (data.isEnabled())
                 {
-                    sender.sendMessage(botPrefix + " Bot is already enabled for you.");
+                    sender.sendMessage(ChatColor.BLUE + botPrefix + " Bot is already enabled for you.");
                     return true;
                 }
                 data.enable();

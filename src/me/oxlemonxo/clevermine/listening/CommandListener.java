@@ -24,7 +24,7 @@ public class CommandListener implements Listener
         
         if (plugin.config.getStringList("commandaliases").contains(command.replaceFirst("/", "").split(" ")[0]))
         {
-            plugin.getServer().dispatchCommand((CommandSender) player, "clevermine " + command.replaceFirst(command.split(" ")[0], ""));
+            plugin.getServer().dispatchCommand((CommandSender) player, "clevermine" + command.replaceFirst(command.split(" ")[0], ""));
             e.setCancelled(true);
         }
         else

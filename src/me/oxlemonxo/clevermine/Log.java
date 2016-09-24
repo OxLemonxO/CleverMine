@@ -15,6 +15,17 @@ public class Log
         throw new AssertionError();
     }
 
+    
+    // DEBUG
+    public static void debug(String message)
+    {
+        if(CleverMine.plugin.debugmode)
+        {
+            info("[DEBUG] " + message);
+        }
+    }
+    
+    
     // Level.INFO:
     public static void info(String message)
     {

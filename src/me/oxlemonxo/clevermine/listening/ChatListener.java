@@ -24,7 +24,7 @@ public class ChatListener implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         Player player = event.getPlayer();
-        String trigger = plugin.config.getString("bot.trigger").replace("%botname%", StrUtils.stripColorCodes(plugin.config.getString("bot.name")));
+        String trigger = plugin.config.getString("bot.trigger").replace("%botname%", StrUtils.stripColorCodes(plugin.config.getString("bot.name"))).toLowerCase();
         String msg = event.getMessage().toLowerCase();
         String message = event.getMessage().replace(trigger, "");
 

@@ -24,7 +24,7 @@ public class ChatListener implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         Player player = event.getPlayer();
-        String trigger = plugin.config.getString("bot.trigger").toLowerCase().replace("%botname%", StrUtils.stripColorCodes(plugin.config.getString("bot.name").toLowerCase()));
+        String trigger = plugin.config.getString("bot.trigger").replace("%botname%", StrUtils.stripColorCodes(plugin.config.getString("bot.name")));
         String msg = event.getMessage().toLowerCase();
         String message = event.getMessage().replace(trigger, "");
 
@@ -54,6 +54,7 @@ public class ChatListener implements Listener
                             } 
                             else
                             {
+
                                 Bukkit.broadcastMessage(StrUtils.colorize(plugin.config.getString("bot.formatting").replace("%botname%", StrUtils.colorize(plugin.config.getString("bot.name"))).replace("%message%", session.think(message))));
                             }
                         }

@@ -24,7 +24,7 @@ public class ChatListener implements Listener
     public void onPlayerChat(AsyncPlayerChatEvent event)
     {
         Player player = event.getPlayer();
-        String trigger = plugin.config.getString("bot.trigger").replace("%botname%", StrUtils.stripColorCodes(plugin.config.getString("bot.name"))).toLowerCase();
+        String trigger = plugin.config.getString("bot.trigger").toLowerCase().replace("%botname%", StrUtils.stripColorCodes(plugin.config.getString("bot.name").toLowerCase()));
         String msg = event.getMessage().toLowerCase();
         String message = event.getMessage().replace(trigger, "");
 
@@ -48,11 +48,13 @@ public class ChatListener implements Listener
                             ChatterBotSession session = bot.createSession();
                             if (data.isPersonal())
                             {
+                                player.sendMessage(ChatColor.WHITE + "<" + player.getDisplayName() + ChatColor.WHITE + "> " + message);
                                 player.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.config.getString("bot.formatting").replace("%botname%", ChatColor.translateAlternateColorCodes('&', plugin.config.getString("bot.name"))).replace("%message%", session.think(message))));
-                            } else
+                                event.setCancelled(true);
+                            } 
+                            else
                             {
-
-                                Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', plugin.config.getString("bot.formatting").replace("%botname%", ChatColor.translateAlternateColorCodes('&', plugin.config.getString("bot.name"))).replace("%message%", session.think(message))));
+                                Bukkit.broadcastMessage(StrUtils.colorize(plugin.config.getString("bot.formatting").replace("%botname%", StrUtils.colorize(plugin.config.getString("bot.name"))).replace("%message%", session.think(message))));
                             }
                         }
                     } catch (Exception ex)

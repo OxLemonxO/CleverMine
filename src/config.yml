@@ -13,6 +13,14 @@ bot:
     
     # The answer the bot will give, supports color codes (&<code>)
     formatting: '%botname% &7> %message%'
+    
+    # The prefix the bot will have in its messages.
+    # its recommended to put a color code at the very end 
+    # of the prefix to make the message have that color.
+    prefix: '&9[%botname%&9]&b'
+
+# Should we disable use of global bot messaging?
+disableglobal: false
 
 # These commands will alias to "/clevermine" when used.
 commandaliases:

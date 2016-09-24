@@ -16,7 +16,7 @@ public class Command_clevermine extends BaseCommand
     public boolean run(final CommandSender sender, final Player sender_p, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
     {
         PlayerData data = PlayerData.getPlayerData(sender_p);
-        String botPrefix = ChatColor.BLUE + "[" + StrUtils.colorize(plugin.config.getString("bot.name")) + ChatColor.BLUE + "]";
+        String botPrefix = StrUtils.colorize(plugin.config.getString("bot.prefix")).replace("%botname%",StrUtils.colorize(plugin.config.getString("bot.name")));
 
         if (args.length != 1)
         {
@@ -62,6 +62,12 @@ public class Command_clevermine extends BaseCommand
 
             case "global":
             {
+                if(plugin.config.getBoolean("disableglobal"))
+                {
+                    sender.sendMessage(botPrefix + " Global bot messages have been disabled.");
+                    data.setPersonal();
+                    return true;
+                }
                 if (!data.isPersonal())
                 {
                     sender.sendMessage(botPrefix + " Mode is already global.");

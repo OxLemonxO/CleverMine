@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.ChatColor;
 
-@CommandPermissions(source = SourceType.ONLY_IN_GAME) //Command errors when used from console anyways.
+@CommandPermissions(source = SourceType.ONLY_IN_GAME) 
 @CommandParameters(description = "Main command", usage = "/<command> <on | off | personal | global>")
 public class Command_clevermine extends BaseCommand
 {
@@ -16,7 +16,7 @@ public class Command_clevermine extends BaseCommand
     public boolean run(final CommandSender sender, final Player sender_p, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
     {
         PlayerData data = PlayerData.getPlayerData(sender_p);
-        String botPrefix = ChatColor.BLUE + "[" + StrUtils.colorize(plugin.config.getString("bot.name")) + ChatColor.BLUE + "]" + ChatColor.AQUA;
+        String botPrefix = ChatColor.BLUE + "[" + StrUtils.colorize(plugin.config.getString("bot.name")) + ChatColor.BLUE + "]";
 
         if (args.length != 1)
         {

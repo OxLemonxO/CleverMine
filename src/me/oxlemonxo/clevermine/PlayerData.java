@@ -69,7 +69,7 @@ public class PlayerData
     private final UUID uuid;
     //
     private boolean isEnabled = true;
-    private boolean isPersonal = false;
+    private boolean isPersonal = true;
 
     private PlayerData(Player player, UUID uuid, String ip)
     {

@@ -16,7 +16,7 @@ public class Command_clevermine extends BaseCommand
     public boolean run(final CommandSender sender, final Player sender_p, final Command cmd, final String commandLabel, final String[] args, final boolean senderIsConsole)
     {
         PlayerData data = PlayerData.getPlayerData(sender_p);
-        String botPrefix = StrUtils.colorize(plugin.config.getString("bot.prefix")).replace("%botname%",StrUtils.colorize(plugin.config.getString("bot.name")));
+        String botPrefix = StrUtils.colorize(plugin.config.getString("bot.prefix")).replace("%botname%", StrUtils.colorize(plugin.config.getString("bot.name")));
 
         if (args.length != 1)
         {
